@@ -9178,6 +9178,11 @@ html, body {
     border-radius: 10px;
 
 }
+.leave-btn {
+  position: absolute;
+  bottom: 30px;
+  
+}
 @media (max-width:768px){
 
 .agora-theme .video-view {

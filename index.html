@@ -111,6 +111,7 @@
           <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
       </div>
     </div>
+    <a href="javascript:;" class="btn btn-raised btn-primary waves-effect waves-light leave-btn" onclick="leaveFun()">LEAVE</a>
     </form>
   <script src="vendor/jquery.min.js"></script>
   <script src="vendor/materialize.min.js"></script>
@@ -505,6 +506,7 @@
        * Leaves an AgoraRTC Channel
        * This method enables a user to leave a channel.
        **/
+      
       rtc.client.leave(function () {
         // stop stream
         if(rtc.localStream.isPlaying()) {
@@ -512,6 +514,7 @@
         }
         // close stream
         rtc.localStream.close()
+       
         for (let i = 0; i < rtc.remoteStreams.length; i++) {
           var stream = rtc.remoteStreams.shift()
           var id = stream.getId()
@@ -526,12 +529,14 @@
         console.log("client leaves channel success")
         rtc.published = false
         rtc.joined = false
-        Toast.notice("leave success")
+        Toast.notice("leave success");
+       
       }, function (err) {
         console.log("channel leave failed")
         Toast.error("leave success")
         console.error(err)
-      })
+      });
+     
     }
 
     // This function automatically executes when a document is ready.
@@ -602,6 +607,7 @@
       });
       // Leeaves the chanenl if someone clicks the leave button
       $("#leave").on("click", function (e) {
+       
         console.log("leave")
         e.preventDefault()
         var params = serializeformData()
@@ -610,5 +616,9 @@
         }
       })
     })
+    function leaveFun() {
+      localStorage.clear();
+        window.location.href = 'home-test.html';
+    }
   </script>
 </html>
