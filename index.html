@@ -109,7 +109,6 @@
           <div id="local_stream" class="video-placeholder"></div>
           <div id="local_video_info" class="video-profile hide"></div>
           <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
-        </div>
       </div>
     </div>
   </form>
@@ -117,6 +116,9 @@
   <script src="vendor/materialize.min.js"></script>
   <script src="AgoraRTCSDK-3.6.0.js"></script>
   <script>
+    // const urlParams = new URLSearchParams(window.location.search);
+    const paramToken = localStorage.getItem('token');
+    console.log(paramToken);
     console.log("agora sdk version: " + AgoraRTC.VERSION + " compatible: " + AgoraRTC.checkSystemRequirements());
     var resolutions = [
       {
@@ -176,12 +178,22 @@
 
     function serializeformData() {
       var formData = $("#form").serializeArray()
-      var obj = {}
-      for (var item of formData) {
-        var key = item.name
-        var val = item.value
-        obj[key] = val
+      var obj = {
+        appID: "1f8a8fc62e154378b9aa4315a6977233",
+        cameraId: "",
+        cameraResolution: "default",
+        channel: "channel",
+        codec: "h264",
+        microphoneId: "",
+        mode: "live",
+        token: paramToken,
+        uid: ""
       }
+      // for (var item of formData) {
+      //   var key = item.name
+      //   var val = item.value
+      //   obj[key] = val
+      // }
       return obj
     }
 
@@ -551,13 +563,24 @@
       var fields = ["appID", "channel"]
 
       // This will start the join functions with all the configuration selected by the user.
-      $("#join").on("click", function (e) {
-        console.log("join")
-        e.preventDefault();
+      // $("#join").on("click", function (e) {
+      //   console.log("join")
+      //   // e.preventDefault();
+      //   var params = serializeformData(); // Data is feteched and serilized from the form element.
+      //   console.log('---------------',params);
+      //   if (validator(params, fields)) {
+      //     join(rtc, params)
+      //   }
+      // });
+      $(document).ready(function(){
+       setTimeout(function(){
+
         var params = serializeformData(); // Data is feteched and serilized from the form element.
+        console.log('---------------',params);
         if (validator(params, fields)) {
           join(rtc, params)
         }
+       },1000)
       })
       // This publishes the video feed to Agora
       $("#publish").on("click", function (e) {

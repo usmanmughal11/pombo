@@ -93,9 +93,22 @@
    font-weight: 700;
  
   }
- 
+  .controls {
+    margin: 20px 0 10px;
+  }
+ .controls input {
+    background: #4b1b74;
+    border:1px solid #321150;
+    width: 100%;
+    border-radius: 4px;
+    height: 50px;
+    outline: none;
+    box-shadow: none;
+    color: #ffffff;
+    padding: 0 20px;
+ }
 
-  .video-grid{
+  /* .video-grid{
       height: 100%;
   }
   .video-view{
@@ -107,5 +120,4 @@
         margin: 10px;
         border-radius: 15px;
         background: red;
-        /* height: calc(100%-100px); */
-  }
+  } */
