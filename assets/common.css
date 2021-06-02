@@ -9164,11 +9164,11 @@ html, body {
     flex-flow: row wrap;
   }
 .agora-theme .video-view {
-  flex:1 ;
+ 
   margin: 10px;
   padding: 10px;
   border-radius: 15px;
-  /* background: #00838f; */
+  background: #00838f;
   z-index: 2;
   margin: 10px 0;
 }
@@ -9183,6 +9183,11 @@ html, body {
   bottom: 30px;
   
 }
+@media (min-width:768px){
+  .agora-theme .video-view {
+    flex:1 ;
+  }
+  }
 @media (max-width:768px){
 
 .agora-theme .video-view {

@@ -121,3 +121,32 @@
         border-radius: 15px;
         background: red;
   } */
+  .controls {
+    position: absolute;
+    max-width: 100%;
+    border-radius: 50px;
+    width: 600px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 30px;
+    background: -moz-linear-gradient(top,  rgba(75,27,116,0.8) 0%, rgba(106,52,159,0.8) 100%);
+    background: -webkit-linear-gradient(top,  rgba(75,27,116,0.8) 0%,rgba(106,52,159,0.8) 100%);
+    background: linear-gradient(to bottom,  rgba(75,27,116,0.8) 0%,rgba(106,52,159,0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc4b1b74', endColorstr='#cc6a349f',GradientType=0 );    
+    text-align: center;
+  }
+  .controls a {
+    margin: 0 15px;
+    vertical-align: middle;
+    opacity: 0.5;
+    display: inline-block;
+    height: 80px;
+    width: 65px;
+    padding: 23px 0;
+    text-align: center;
+}
+.controls a.active {
+  background: #53257b;
+  opacity: 1;
+}
