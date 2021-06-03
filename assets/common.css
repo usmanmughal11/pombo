@@ -9164,7 +9164,7 @@ html, body {
     flex-flow: row wrap;
   }
 .agora-theme .video-view {
- 
+  width: 100%;
   margin: 10px;
   padding: 10px;
   border-radius: 15px;
@@ -9188,12 +9188,7 @@ html, body {
     flex:1 ;
   }
   }
-@media (max-width:768px){
 
-.agora-theme .video-view {
-  width: 100%;
-}
-}
 /* .agora-theme .video-view,
 .agora-theme .video-placeholder,
 .agora-theme #local_stream, .agora-theme #local_video_info {
