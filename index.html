@@ -112,6 +112,9 @@
       </div>
     </div>
     <a href="javascript:;" class="btn btn-raised btn-primary waves-effect waves-light leave-btn" onclick="leaveFun()">LEAVE</a>
+    <a href="javascript:;" class="btn btn-raised btn-primary waves-effect waves-light" id="mute">Mute</a>
+    <a href="javascript:;" class="btn btn-raised btn-primary waves-effect waves-light" id="unmute">Un Mute</a>
+
     </form>
   <script src="vendor/jquery.min.js"></script>
   <script src="vendor/materialize.min.js"></script>
@@ -472,7 +475,20 @@
       Toast.info("publish")
       rtc.published = true
     }
-
+    function muteAudio(rtc){
+      rtc.client.on("mute-audio", function(evt) {
+    var uid = evt.uid;
+    console.log("mute audio:" + uid);
+    //alert("mute audio:" + uid);
+  });
+}
+function unmuteAudio(rtc){
+      rtc.client.on("unmute-audio", function(evt) {
+    var uid = evt.uid;
+    console.log("mute audio:" + uid);
+    //alert("mute audio:" + uid);
+  });
+}
     function unpublish (rtc) {
       if (!rtc.client) {
         Toast.error("Please Join Room First")
@@ -615,10 +631,17 @@
           leave(rtc)
         }
       })
+    });
+    $('#mute').on('click', function(){
+      muteAudio(rtc);
+    })
+    $('#unmute').on('click', function(){
+      unmuteAudio(rtc);
     })
     function leaveFun() {
       localStorage.clear();
         window.location.href = 'home-test.html';
     }
+    
   </script>
 </html>
